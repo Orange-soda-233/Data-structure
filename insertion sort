@@ -1,0 +1,31 @@
+//插入排序
+#include<stdio.h>
+
+//直接插入排序,为什么a数组不用引用，数组传入的是地址； 
+void InsertSort(int a[],int n){
+	int i,j,temp;
+	for(int i=1;i<n;i++){
+		if(a[i]<a[i-1]){
+			temp=a[i];
+			for(j=i-1;j>=0 && a[j]>temp;j--){
+				a[j+1]=a[j];
+				a[j]=temp;
+			}
+		}
+	}
+} 
+
+void display(int a[],int n){
+	int i,j;
+	for(int i=0;i<n;i++){
+		printf("a[%d]:%d    ",i,a[i]);
+	}
+		printf("\n");
+}
+
+int main(){
+	int a[8]={49,38,65,97,76,13,27,49};
+	display(a,8);
+	InsertSort(a,8);
+	display(a,8);
+}
